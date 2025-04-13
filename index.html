@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sea Pink</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1> Sea Pink</h1>
+    <div class="player-inputs" id="playerInputs">
+      <input type="text" id="player1" placeholder="Enter Player One Name" />
+      <input type="text" id="player2" placeholder="Enter Player Two Name" />
+      <button onclick="startGame()">Start Game</button>
+    </div>
+    <div class="game-board" id="gameBoard" style="display: none;">
+      <div id="game-title"></div>
+      <div id="winner-message"></div>
+      <div class="board" id="board"></div>
+      <button id="reset-btn" onclick="resetGame()">Reset</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
