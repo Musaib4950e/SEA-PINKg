@@ -1,52 +1,57 @@
-/* Background and body style */
-body {
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #fce4ec, #f8bbd0);
   color: #333;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
-  overflow: auto;
-  text-align: center;
-}
-
-/* Header */
-h1 {
-  font-size: 3rem;
-  color: #c2185b;
-  margin-bottom: 30px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Main container */
-.container {
-  width: 100%;
-  max-width: 500px;
   padding: 20px;
 }
 
-/* Player input section */
+/* Container for all */
+.container {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Main Title */
+h1 {
+  font-size: 3rem;
+  color: #c2185b;
+  margin-bottom: 25px;
+  animation: glowText 2s ease-in-out infinite;
+}
+
+/* Input Section for Names */
 .player-inputs {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 30px;
+  background: #fff0f5;
+  padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Text fields */
+/* Input Fields */
 input[type="text"] {
   padding: 12px;
   margin: 10px 0;
+  width: 80%;
   border: 1px solid #f8bbd0;
   border-radius: 10px;
-  width: 80%;
+  background: #fff;
   font-size: 1rem;
-  background: #fff0f5;
-  color: #333;
   text-align: center;
 }
 
@@ -57,38 +62,32 @@ button {
   color: white;
   font-size: 1rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   cursor: pointer;
   margin-top: 15px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background-color: #d81b60;
+  transform: scale(1.05);
 }
 
-/* Game board section */
-.game-board {
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
-
-/* Player turn display */
+/* Game Board Section */
 #game-title {
   font-size: 1.5rem;
-  margin-bottom: 10px;
   color: #880e4f;
+  margin: 10px 0;
 }
 
-/* Winner message display */
 #winner-message {
   font-size: 1.2rem;
+  margin: 10px;
   color: #ad1457;
-  margin: 10px 0;
-  animation: glowText 1s ease-in-out infinite;
+  animation: glowText 2s ease-in-out infinite;
 }
 
-/* The tic-tac-toe grid */
+/* Game Grid */
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -99,12 +98,12 @@ button:hover {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Each cell */
+/* Individual Cell Styling */
 .cell {
   width: 100px;
   height: 100px;
-  background: #fff;
-  border-radius: 15px;
+  background: white;
+  border-radius: 20px;
   font-size: 2.5rem;
   font-weight: bold;
   color: #ec407a;
@@ -112,30 +111,30 @@ button:hover {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: pop 0.3s ease-in-out;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  animation: popIn 0.4s ease;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Hover effect */
 .cell:hover {
   background: #fce4ec;
   transform: scale(1.05);
 }
 
-/* Reset button style */
+/* Reset Button */
 #reset-btn {
-  margin-top: 15px;
+  margin-top: 20px;
   background-color: #f06292;
+  border-radius: 25px;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes pop {
+@keyframes popIn {
   0% { transform: scale(0.7); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
@@ -145,7 +144,7 @@ button:hover {
   50% { color: #d81b60; text-shadow: 0 0 20px #f48fb1; }
 }
 
-/* Responsive for mobile */
+/* Responsive Design */
 @media screen and (max-width: 400px) {
   .board {
     grid-template-columns: repeat(3, 80px);
@@ -156,5 +155,14 @@ button:hover {
     width: 80px;
     height: 80px;
     font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
   }
 }
